@@ -10,36 +10,40 @@ Get up and running with CatParser in minutes!
 
 ## ⚡ Quick Installation
 
-### Step 1: Install Rust (if not installed)
+### Step 1: Install Prerequisites
 
 ```bash
+# Install Rust (if not installed)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
+
+# Install uv (if not installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### Step 2: Clone and Build
+### Step 2: Clone and Build with uv
 
 ```bash
 # Clone the repository
 git clone https://github.com/Boulaouaney/DocumentParser.git
 cd DocumentParser
 
-# Install maturin
-pip install maturin
+# Build and install with uv
+uv build
+uv pip install dist/catparser-*.whl
 
-# Build and install (this takes a minute)
-maturin build --release
-pip install target/wheels/catparser-*.whl
-
-# Add Python wrapper to your path
-export PYTHONPATH=$PWD/python:$PYTHONPATH
+# Or sync from source
+uv sync
 ```
 
 ### Step 3: Verify Installation
 
 ```bash
-python3 -c "import catparser_rust; print('✅ Rust module works!')"
-python3 -m catparser --info
+# Check installation
+uv run catparser --info
+
+# Test parsing
+uv run catparser examples/sample_data.jsonl
 ```
 
 ## 🐱 Your First Parse
@@ -47,12 +51,17 @@ python3 -m catparser --info
 ### Try the Sample Data
 
 ```bash
-python3 -m catparser examples/sample_data.jsonl
+uv run catparser examples/sample_data.jsonl
 ```
 
 You should see beautiful colorful output with ASCII cats! 🎨🐱
 
 ### Use in Python
+
+```bash
+# Start Python with uv
+uv run python
+```
 
 ```python
 from catparser import CatParser
@@ -72,13 +81,13 @@ print(f"Years: {results['years_range']}")
 
 ```bash
 # Parse with pretty output
-python3 -m catparser data.jsonl
+uv run catparser data.jsonl
 
 # Custom chunk size for large files
-python3 -m catparser large_data.jsonl --chunk-size 50000
+uv run catparser large_data.jsonl --chunk-size 50000
 
 # Silent mode
-python3 -m catparser data.jsonl --quiet
+uv run catparser data.jsonl --quiet
 ```
 
 ## 📊 Expected Output

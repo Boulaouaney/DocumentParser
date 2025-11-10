@@ -9,9 +9,6 @@ import pytest
 from pathlib import Path
 
 # Import the catparser module
-import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 from catparser import CatParser, parse_with_whiskers, get_system_info
 
 

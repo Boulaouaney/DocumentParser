@@ -37,8 +37,7 @@ Repository = "https://github.com/Boulaouaney/DocumentParser"
 catparser = "catparser.__main__:main"
 
 [tool.maturin]
-python-source = "python"
-module-name = "catparser_rust"
+module-name = "catparser.catparser_rust"
 bindings = "pyo3"
 features = ["pyo3/extension-module"]
 

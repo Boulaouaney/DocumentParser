@@ -29,7 +29,7 @@ __author__ = "CatParser Team"
 
 try:
     # Import the Rust extension module
-    from catparser_rust import (
+    from catparser.catparser_rust import (
         parse_documents,
         parse_and_display,
         get_cpu_count,

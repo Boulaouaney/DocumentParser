@@ -41,7 +41,7 @@ CatParser is optimized for speed:
 
 ## 🚀 Installation
 
-### Option 1: Install from Source (Development)
+### Option 1: Install with uv (Recommended)
 
 ```bash
 # Clone the repository
@@ -51,6 +51,36 @@ cd DocumentParser
 # Install Rust (if not already installed)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Build and install
+uv build
+uv pip install dist/catparser-*.whl
+
+# Or sync from source
+uv sync
+```
+
+### Option 2: Install from Source (Development)
+
+```bash
+# Clone the repository
+git clone https://github.com/Boulaouaney/DocumentParser.git
+cd DocumentParser
+
+# Install Rust (if not already installed)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Create virtual environment and install
+uv venv
+uv pip install maturin
+uv run maturin develop --release
+```
+
+### Option 3: Traditional pip Installation
+
+```bash
 # Install Python dependencies
 pip install maturin
 
@@ -62,29 +92,25 @@ maturin build --release
 pip install target/wheels/catparser-*.whl
 ```
 
-### Option 2: Quick Development Setup
-
-```bash
-# Install in editable mode for development
-pip install -e .
-```
-
 ## 📚 Usage
 
 ### Command Line Interface
 
 ```bash
-# Parse a JSON Lines file with pretty output
+# Using uv (recommended)
+uv run catparser data.jsonl
+
+# Or if installed globally
 catparser data.jsonl
 
 # Parse with custom chunk size
-catparser data.jsonl --chunk-size 50000
+uv run catparser data.jsonl --chunk-size 50000
 
 # Silent mode (no colorful output)
-catparser data.jsonl --quiet
+uv run catparser data.jsonl --quiet
 
 # Show system information
-catparser --info
+uv run catparser --info
 ```
 
 ### Python API
