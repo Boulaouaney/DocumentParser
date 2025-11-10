@@ -1,0 +1,30 @@
+[package]
+name = "catparser"
+version = "0.1.0"
+edition = "2021"
+authors = ["CatParser Team"]
+description = "A blazingly fast, cat-themed document parser written in Rust with Python bindings"
+license = "MIT"
+
+[lib]
+name = "catparser_rust"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rayon = "1.8"
+chrono = "0.4"
+colored = "2.1"
+anyhow = "1.0"
+num_cpus = "1.16"
+
+[dependencies.pyo3]
+version = "0.20"
+features = ["extension-module", "anyhow"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
