@@ -5,8 +5,11 @@ mod types;
 use pyo3::prelude::*;
 use pyo3::types::PyDict;
 
-use crate::parser::{display_results, parse_file};
-use crate::types::ParseResults;
+use crate::parser::display_results;
+
+// Re-export for Python bindings and testing
+pub use crate::parser::parse_file;
+pub use crate::types::ParseResults;
 
 /// Convert Rust ParseResults to Python dictionary
 fn results_to_pydict(py: Python, results: &ParseResults) -> PyResult<PyObject> {

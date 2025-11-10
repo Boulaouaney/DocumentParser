@@ -23,6 +23,9 @@ num_cpus = "1.16"
 version = "0.20"
 features = ["extension-module", "anyhow"]
 
+[dev-dependencies]
+tempfile = "3.8"
+
 [profile.release]
 opt-level = 3
 lto = true

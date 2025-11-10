@@ -1,0 +1,9 @@
+{"id":"valid001","versions":[{"created":"Mon, 1 Jan 2020 10:00:00 GMT"}]}
+{"invalid": "json missing closing brace"
+{"id":"no_versions"}
+{"id":"empty_versions","versions":[]}
+{"id":"valid002","versions":[{"created":"Tue, 1 Jan 2020 11:00:00 GMT"}]}
+not even json at all
+{"id":"invalid_date","versions":[{"created":"Not a real date"}]}
+{"id":"missing_created","versions":[{"updated":"Mon, 1 Jan 2020 12:00:00 GMT"}]}
+{"id":"valid003","versions":[{"created":"Wed, 1 Jan 2020 13:00:00 GMT"}]}

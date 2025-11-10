@@ -41,6 +41,7 @@ htmlcov/
 # Project specific
 *.jsonl
 !examples/*.jsonl
+!tests/data/*.jsonl
 *.png
 *.jpg
 *.jpeg
